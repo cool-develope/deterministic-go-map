@@ -22,9 +22,9 @@ func (m *DeterministicMap[K, V]) Get(key K) (V, bool) {
 
 func (m *DeterministicMap[K, V]) Set(key K, val V) {
 	if _, found := m.data[key]; !found {
-		m.data[key] = val
 		m.keys = append(m.keys, key)
 	}
+	m.data[key] = val
 }
 
 func (m *DeterministicMap[K, V]) Range() []K {
